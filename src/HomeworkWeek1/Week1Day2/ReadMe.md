@@ -1,0 +1,1 @@
+uvicorn mainInvoice:app --reload

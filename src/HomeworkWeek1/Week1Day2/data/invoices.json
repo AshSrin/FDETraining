@@ -1,0 +1,104 @@
+[
+    {
+        "invoice_id": "INV-2001",
+        "vendor": "ABC Ltd",
+        "amount": 85000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2002",
+        "vendor": "XYZ Corp",
+        "amount": 142500,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2003",
+        "vendor": "Nova Inc",
+        "amount": 650000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2004",
+        "vendor": null,
+        "amount": 120000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2005",
+        "vendor": "Delta Ltd",
+        "amount": null,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2006",
+        "vendor": "Apex Supplies",
+        "amount": "TBD",
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2007",
+        "vendor": "Falcon Tech",
+        "amount": 300000,
+        "status": "APPROVED"
+    },
+    {
+        "invoice_id": "INV-2008",
+        "vendor": null,
+        "amount": 45000,
+        "status": "APPROVED"
+    },
+    {
+        "invoice_id": "INV-2009",
+        "vendor": "Horizon Foods",
+        "amount": 100000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2010",
+        "vendor": "Jupiter Steel",
+        "amount": 500000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2011",
+        "vendor": "Lotus Packaging",
+        "amount": 72000,
+        "status": "REVIEW"
+    },
+    {
+        "invoice_id": "INV-2012",
+        "vendor": "Kaveri Chemicals",
+        "amount": 975000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2013",
+        "vendor": "Bright Logistics",
+        "amount": 18500.5,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2014",
+        "vendor": "Global Office Mart",
+        "amount": 210000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2015",
+        "vendor": "Indigo Print Works",
+        "amount": 33000,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2017",
+        "vendor": "Ash Chemicals",
+        "amount": 975000.0,
+        "status": "PENDING"
+    },
+    {
+        "invoice_id": "INV-2019",
+        "vendor": "NewInvoice Chemicals",
+        "amount": 975000.0,
+        "status": "done"
+    }
+]
