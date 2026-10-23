@@ -129,6 +129,7 @@
             }
         </style>
     </head>
+    <script src="config.js"></script>
     <body>
         <div class="page-container">
             <div class="page-header">
@@ -183,6 +184,7 @@
         </div>
 
         <script>
+            const API_BASE = window.API_BASE || 'http://127.0.0.1:8001';
             const resultsBody = document.getElementById('resultsTableBody');
 
             function showTableMessage(message) {
@@ -221,7 +223,7 @@
                         showTableMessage('The search criteria entered is invalid.');
                         return;
                     }
-                    apiUrl = `http://localhost:8001/encounters?patient_nbr=${encodeURIComponent(patientNumber)}&limit=50`;
+                    apiUrl = `${API_BASE}/encounters?patient_nbr=${encodeURIComponent(patientNumber)}&limit=50`;
                 }
                 
                 
@@ -231,13 +233,13 @@
                         showTableMessage('The search criteria entered is invalid.');
                         return;
                     }
-                    apiUrl = `http://localhost:8001/encounters?risk_level=${encodeURIComponent(riskLevel.toUpperCase())}&limit=50`;
+                    apiUrl = `${API_BASE}/encounters?risk_level=${encodeURIComponent(riskLevel.toUpperCase())}&limit=50`;
                 } else if (riskScore) {
                     if (!/^\d+$/.test(riskScore)) {
                         showTableMessage('The search criteria entered is invalid.');
                         return;
                     }
-                    apiUrl = `http://localhost:8001/encounters?risk_score=${encodeURIComponent(riskScore)}&limit=50`;
+                    apiUrl = `${API_BASE}/encounters?risk_score=${encodeURIComponent(riskScore)}&limit=50`;
                 }
 
                 try {

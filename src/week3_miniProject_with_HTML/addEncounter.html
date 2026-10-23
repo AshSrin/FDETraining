@@ -67,6 +67,7 @@
             }
         </style>
     </head>
+    <script src="config.js"></script>
     <body>
         <div class="page-container">
             <h1 class="page-title">Diabetes Patient Management</h1>
@@ -156,7 +157,7 @@
         </div>
 
         <script>
-            const API_BASE = 'http://127.0.0.1:8001';
+            const API_BASE = window.API_BASE || 'http://127.0.0.1:8001';
 
             async function loadPatients() {
                 const tbody = document.getElementById('patientsTableBody');
