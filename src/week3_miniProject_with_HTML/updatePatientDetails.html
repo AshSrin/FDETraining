@@ -1,0 +1,204 @@
+<html>
+    <head>
+        <title>Update Patient Details</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: linear-gradient(135deg, #f1f7ff, #eef3f8);
+                margin: 0;
+                padding: 30px 20px;
+                color: #1f2937;
+            }
+
+            .page-container {
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .page-header {
+                background: #dfeafc;
+                color: #1d3557;
+                padding: 18px 24px;
+                border-radius: 10px;
+                text-align: center;
+                margin-bottom: 24px;
+                border: 1px solid #b9d0f5;
+            }
+
+            .form-card {
+                background: #ffffff;
+                padding: 24px;
+                border-radius: 12px;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            }
+
+            .field-row {
+                margin-bottom: 18px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: #2d3748;
+            }
+
+            input, textarea, button {
+                width: 100%;
+                padding: 10px 12px;
+                box-sizing: border-box;
+                font-size: 14px;
+                border-radius: 6px;
+                border: 1px solid #cbd5e1;
+            }
+
+            textarea {
+                min-height: 110px;
+                resize: vertical;
+            }
+
+            button {
+                background: linear-gradient(135deg, #2d6cdf, #1f5ac7);
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background 0.2s ease;
+            }
+
+            button:hover {
+                background: linear-gradient(135deg, #255dc4, #1749a6);
+            }
+
+            .result-box {
+                margin-top: 24px;
+                background: #f8fafc;
+                border: 1px solid #dbe3ee;
+                border-radius: 10px;
+                padding: 16px;
+                white-space: pre-wrap;
+                font-family: Consolas, monospace;
+                color: #243b53;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <div class="page-header">
+                <h1>Update Patient Details</h1>
+            </div>
+
+            <form id="updatePatientForm" class="form-card">
+                <div class="field-row">
+                    <!--add script to get encounter id from previous screen and populate here-->
+                    <label for="encounter_id">Encounter ID:</label>
+                    <input type="text" id="encounter_id" name="encounter_id" required>
+                    <script>
+                        document.getElementById('encounter_id').value = new URLSearchParams(window.location.search).get('encounter_id');
+                    </script>
+
+                </div>
+
+                <div class="field-row">
+                    
+                   <!-- The script should fetch patient number for the above encounterid from patient encounter table-->   
+                    <label for="patient_id">Patient Number:</label>
+                    <input type="text" id="patient_id" name="patient_id" required>
+                    <script>
+                        async function fetchPatientNumber(encounterId) {
+                            try {
+                                const response = await fetch(`http://127.0.0.1:8001/encounters/${encounterId}`);
+                                if (!response.ok) {
+                                    throw new Error(`HTTP ${response.status}`);
+                                }
+                                const data = await response.json();
+                                document.getElementById('patient_id').value = data.patient_nbr ?? data.patientId ?? '';
+                            } catch (error) {
+                                console.error('Failed to fetch patient number:', error.message);
+                            }
+                        }
+
+                        const encounterId = new URLSearchParams(window.location.search).get('encounter_id');
+                        if (encounterId) {
+                            fetchPatientNumber(encounterId);
+                        }
+                    </script>
+                </div>
+
+                <div class="field-row">
+                    <!-- this label and select to be intervention status-->
+                    <label for="intervention_status">Intervention status:</label>
+                    <select id="intervention_status" name="intervention_status" required>
+                        <!-- values to be  'PENDING_REVIEW',
+            'ASSIGNED',
+            'CONTACTED',
+            'FOLLOW_UP_SCHEDULED',
+            'CLOSED'-->
+                        <option value="">Select intervention status</option>
+                        <option value="PENDING_REVIEW">PENDING_REVIEW</option>
+                        <option value="ASSIGNED">ASSIGNED</option>
+                        <option value="CONTACTED">CONTACTED</option>
+                        <option value="FOLLOW_UP_SCHEDULED">FOLLOW_UP_SCHEDULED</option>
+                        <option value="CLOSED">CLOSED</option>
+                    </select>
+                </div>
+
+                <div class="field-row">
+                    <label for="assigned_to">Assigned To:</label>
+                    <input type="text" id="assigned_to" name="assigned_to" placeholder="Care Team A">
+                </div>
+
+                <div class="field-row">
+                    <label for="clinical_notes">Clinical Notes:</label>
+                    <textarea id="clinical_notes" name="clinical_notes" required></textarea>
+                </div>
+
+                <button type="submit">Update</button>
+            </form>
+
+            <div class="result-box" id="updatedRecord">No updates yet.</div>
+        </div>
+
+        <script>
+            document.getElementById('updatePatientForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const encounterId = document.getElementById('encounter_id').value;
+                const patientNbr = document.getElementById('patient_id').value;
+                const interventionStatus = document.getElementById('intervention_status').value;
+                const assignedTo = document.getElementById('assigned_to').value;
+                const clinicalNotes = document.getElementById('clinical_notes').value;
+
+                const data = {
+                    patient_nbr: patientNbr,
+                    intervention_status: interventionStatus,
+                    assigned_to: assignedTo,
+                    notes: clinicalNotes
+                };
+                console.log("Prepared data for PATCH request:", data);
+                try {
+                    console.log("Sending PATCH request to update patient details:", encounterId);
+                    const response = await fetch(`http://127.0.0.1:8001/interventions/${encounterId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    console.log("Request payload:", JSON.stringify(data, null, 2));
+
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(errorData.detail || `HTTP ${response.status}`);
+                    }
+
+                    const updatedRecord = await response.json();
+                    document.getElementById('updatedRecord').innerText = "Record Updated Successfully";
+                } catch (error) {
+                    console.error('Error updating patient details:', error);
+                    document.getElementById('updatedRecord').innerText = 'Error updating patient details.\n' + error.message + '\nRequest payload:\n' + JSON.stringify(data, null, 2);
+                }
+            });
+        </script>
+    </body>
+</html>

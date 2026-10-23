@@ -1,0 +1,245 @@
+<html>
+    <head>
+        <title>Patient Management</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f7f7f7;
+            }
+            h1 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+            .page-title {
+                background-color: #dfeafc;
+                color: #1d3557;
+                padding: 15px 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border: 1px solid #b9cdea;
+            }
+            .page-container {
+                max-width: 700px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+            }
+            .form-section {
+                margin-bottom: 20px;
+            }
+            .field-row {
+                margin-bottom: 15px;
+            }
+            label {
+                display: block;
+                margin-bottom: 6px;
+                font-weight: bold;
+            }
+            input, select, button {
+                width: 100%;
+                padding: 8px 10px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            button {
+                background-color: #2d6cdf;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ccc;
+            }
+            th {
+                background-color: #eef4ff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <h1 class="page-title">Diabetes Patient Management</h1>
+
+            <section class="form-section">
+                <h2>Add Patient Encounter</h2>
+                <form id="addEncounterForm">
+                    <div class="field-row">
+                        <label for="patient_nbr">Patient Number:</label>
+                        <input type="number" id="patient_nbr" name="patient_nbr" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="Age">Age:</label>
+                        <select id="Age" name="Age" required>
+                            <option value="">Select Age</option>
+                            <option value="0-18">0-18</option>
+                            <option value="19-35">19-35</option>
+                            <option value="36-50">36-50</option>
+                            <option value="51+">51+</option>
+                        </select>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="timeInHospital">Time in Hospital (days):</label>
+                        <input type="number" id="timeInHospital" name="timeInHospital" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="inPatientVisits">Inpatient Visits:</label>
+                        <input type="number" id="inPatientVisits" name="inPatientVisits" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="emergencyVisits">Emergency Visits:</label>
+                        <input type="number" id="emergencyVisits" name="emergencyVisits" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="outPatientVisits">Outpatient Visits:</label>
+                        <input type="number" id="outPatientVisits" name="outPatientVisits" value="0" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="numMedications">Number of Medications:</label>
+                        <input type="number" id="numMedications" name="numMedications" value="0" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="numLabProcedures">Number of Lab Procedures:</label>
+                        <input type="number" id="numLabProcedures" name="numLabProcedures" value="0" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="dischargeDispositionId">Discharge Disposition ID:</label>
+                        <input type="number" id="dischargeDispositionId" name="dischargeDispositionId" value="1" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="admissionTypeId">Admission Type ID:</label>
+                        <input type="number" id="admissionTypeId" name="admissionTypeId" value="1" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="readmitted">Readmitted:</label>
+                        <input type="text" id="readmitted" name="readmitted" value="NO" required>
+                    </div>
+
+                    <button type="submit">Add Encounter</button>
+                </form>
+            </section>
+            
+
+
+            <table id="patientsTable" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>EncounterId</th>
+                        <th>Age</th>
+                        <th>Risk Level</th>
+                        <th>Risk Score</th>
+                    </tr>
+                </thead>
+                <tbody id="patientsTableBody"></tbody>
+            </table>
+
+        </div>
+
+        <script>
+            const API_BASE = 'http://127.0.0.1:8001';
+
+            async function loadPatients() {
+                const tbody = document.getElementById('patientsTableBody');
+
+                try {
+                    const response = await fetch(`${API_BASE}/encounters`);
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    const patients = await response.json();
+                    tbody.innerHTML = '';
+
+                    patients.forEach((patient) => {
+                        const row = document.createElement('tr');
+
+                        row.innerHTML = `
+                        <!-- Added a link to the encounter id and this should navigate to next html page updatPatientDetails.html -->
+
+                            <td><a href="updatePatientDetails.html?encounter_id=${patient.encounter_id ?? patient.encounterId ?? ''}">${patient.encounter_id ?? patient.encounterId ?? ''}</a></td>
+                         
+                            <td>${patient.age ?? ''}</td>
+                            <td>${patient.risk_level ?? patient.riskLevel ?? ''}</td>
+                            <td>${patient.risk_score ?? patient.riskScore ?? ''}</td>
+                        `;
+
+                        tbody.appendChild(row);
+                    });
+
+                    return patients;
+                } catch (error) {
+                    console.error('Failed to load patients:', error.message);
+                    tbody.innerHTML = '<tr><td colspan="4">Unable to load patient data. Please start the FastAPI server on port 8001.</td></tr>';
+                    return [];
+                }
+            }
+
+            async function handleAddEncounter(event) {
+                event.preventDefault();
+
+                const payload = {
+                    patient_nbr: Number(document.getElementById('patient_nbr').value),
+                    age: document.getElementById('Age').value,
+                    time_in_hospital: Number(document.getElementById('timeInHospital').value),
+                    number_inpatient: Number(document.getElementById('inPatientVisits').value),
+                    number_emergency: Number(document.getElementById('emergencyVisits').value),
+                    number_outpatient: Number(document.getElementById('outPatientVisits').value),
+                    num_medications: Number(document.getElementById('numMedications').value),
+                    num_lab_procedures: Number(document.getElementById('numLabProcedures').value),
+                    discharge_disposition_id: Number(document.getElementById('dischargeDispositionId').value),
+                    admission_type_id: Number(document.getElementById('admissionTypeId').value),
+                    readmitted: document.getElementById('readmitted').value,
+                };
+
+                try {
+                    const response = await fetch(`${API_BASE}/encounters`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.detail || 'Failed to add encounter');
+                    }
+
+                    alert('Patient encounter created successfully!'+ JSON.stringify(data.patient_nbr));
+                    document.getElementById('addEncounterForm').reset();
+                    await loadPatients();
+                } catch (error) {
+                    alert(`Error: ${error.message}`);
+                    console.error('Create encounter failed:', error);
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                loadPatients();
+                document.getElementById('addEncounterForm').addEventListener('submit', handleAddEncounter);
+            });
+        </script>
+    </body>
+</html>
