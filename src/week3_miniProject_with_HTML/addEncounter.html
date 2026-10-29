@@ -228,7 +228,7 @@
                         throw new Error(data.detail || 'Failed to add encounter');
                     }
 
-                    alert('Patient encounter created successfully!'+ JSON.stringify(data.patient_nbr));
+                    alert('Patient encounter created successfully!'+ JSON.stringify(data.encounter_id ?? data.encounterId ?? ''));
                     document.getElementById('addEncounterForm').reset();
                     await loadPatients();
                 } catch (error) {

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Search Patient</title>
@@ -34,7 +35,7 @@
             .page-header h1 {
                 margin: 0;
                 font-size: 2rem;
-                color: #1d3557;
+                color: #571d54;
             }
 
             .form-card {
@@ -108,6 +109,7 @@
                 margin: 0 0 16px;
                 color: #1d3557;
                 font-size: 1.3rem;
+                font-family:'italic', sans-serif;
             }
 
             table {
@@ -136,7 +138,7 @@
                 <h1>Search Patient</h1>
             </div>
 
-            <form class="form-card">
+            <form id="searchPatientForm" class="form-card">
                 <div class="field-row">
                     <label for="patientNumber">Patient Number:</label>
                     <input type="text" id="patientNumber" name="patientNumber" placeholder="Enter patient number">
@@ -157,7 +159,7 @@
                     <input type="text" id="riskScore" name="riskScore" placeholder="Enter risk score">
                 </div>
 
-                <button type="submit">Search</button>
+                <button id="searchButton" type="submit">Search</button>
             </form>
 
             <div class="results-box">
@@ -276,7 +278,7 @@
                 }
             }
 
-            document.querySelector('button[type="submit"]').addEventListener('click', function (event) {
+            document.getElementById('searchButton').addEventListener('click', function (event) {
                 event.preventDefault();
                 searchPatient();
             });

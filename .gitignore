@@ -1,0 +1,41 @@
+.env
+.venv/
+__pycache__/
+.log
+*.pyc
+
+# Dependencies and Python environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Builds and caches
+dist/
+build/
+.next/
+coverage/
+.turbo/
+
+# Secrets
+
+.env.*
+!.env.example
+!.env.sample
+!.env_example
+
+# Local tooling and files
+.DS_Store
+.vscode/
+.playwright-mcp/
+*.code-workspace
+*.log
+
+# Archives and duplicate project copies
+*.zip
+src/fde-patientManagement-react copy/
+src/fde-patientManagement-react copy 2/
+
+
+/src/fde-performance-review-fresh/

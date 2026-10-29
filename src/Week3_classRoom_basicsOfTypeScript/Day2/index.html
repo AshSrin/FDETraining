@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title>Patient Management</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f7f7f7;
+            }
+            h1 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+            .page-title {
+                background-color: #dfeafc;
+                color: #1d3557;
+                padding: 15px 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border: 1px solid #b9cdea;
+            }
+            .page-container {
+                max-width: 700px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+            }
+            .form-section {
+                margin-bottom: 20px;
+            }
+            .field-row {
+                margin-bottom: 15px;
+            }
+            label {
+                display: block;
+                margin-bottom: 6px;
+                font-weight: bold;
+            }
+            input, select, button {
+                width: 100%;
+                padding: 8px 10px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            button {
+                background-color: #2d6cdf;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ccc;
+            }
+            th {
+                background-color: #eef4ff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <h1 class="page-title">Diabetes Patient Management</h1>
+
+            <section class="form-section">
+                <h2>Add Patient Encounter</h2>
+                <form id="addEncounterForm">
+                    <div class="field-row">
+                        <label for="patient_nbr">Patient Number:</label>
+                        <input type="text" id="patient_nbr" name="patient_nbr" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="Age">Age:</label>
+                        <select id="Age" name="Age" required>
+                            <option value="">Select Age</option>
+                            <option value="0-18">0-18</option>
+                            <option value="19-35">19-35</option>
+                            <option value="36-50">36-50</option>
+                            <option value="51+">51+</option>
+                        </select>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="timeInHospital">Time in Hospital (days):</label>
+                        <input type="number" id="timeInHospital" name="timeInHospital" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="inPatientVisits">Inpatient Visits:</label>
+                        <input type="number" id="inPatientVisits" name="inPatientVisits" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="emergencyVisits">Emergency Visits:</label>
+                        <input type="number" id="emergencyVisits" name="emergencyVisits" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="medication">Medication:</label>
+                        <input type="text" id="medication" name="medication" required>
+                    </div>
+
+                    <button type="submit">Add Encounter</button>
+                </form>
+            </section>
+            
+
+
+            <table id="patientsTable" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>Patient Number</th>
+                        <th>Age</th>
+                        <th>Risk Level</th>
+                        <th>Risk Score</th>
+                    </tr>
+                </thead>
+                <tbody id="patientsTableBody"></tbody>
+            </table>
+
+        </div>
+
+        <script>
+            async function loadPatients() {
+                const ports = [8001, 8002];
+                const tbody = document.getElementById('patientsTableBody');
+
+                for (const port of ports) {
+                    try {
+                        const response = await fetch(`http://127.0.0.1:8002/encounters`);
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+
+                        const patients = await response.json();
+                        tbody.innerHTML = '';
+
+                        patients.forEach((patient) => {
+                            const row = document.createElement('tr');
+
+                            row.innerHTML = `
+                                <td>${patient.patient_nbr ?? patient.patientNumber ?? ''}</td>
+                                <td>${patient.age ?? ''}</td>
+                                <td>${patient.risk_level ?? patient.riskLevel ?? ''}</td>
+                                <td>${patient.risk_score ?? patient.riskScore ?? ''}</td>
+                            `;
+
+                            tbody.appendChild(row);
+                        });
+
+                        return patients;
+                    } catch (error) {
+                        console.warn(`Port ${port} failed:`, error.message);
+                    }
+                }
+
+                tbody.innerHTML = '<tr><td colspan="4">Unable to load patient data. Please start the FastAPI server on port 8001 or 8002.</td></tr>';
+                return [];
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                loadPatients();
+            }); 
+        </script>
+    </body>
+</html>

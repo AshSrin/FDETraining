@@ -59,7 +59,7 @@ def encounters(
     risk_level: str | None = None,
     patient_nbr: int | None = None,
     risk_score: int | None = None,
-    limit: int = Query(default=50, ge=1, le=1000),
+    limit: int = Query(default=500, ge=1, le=1000),
 ):
     try:
         if sum(value is not None for value in [risk_level, patient_nbr, risk_score]) > 1:
