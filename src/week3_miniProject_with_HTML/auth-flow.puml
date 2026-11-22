@@ -1,0 +1,85 @@
+@startuml auth-flow
+title Authentication flow: week3_miniProject_with_HTML\n(as implemented today)
+
+skinparam sequenceMessageAlign center
+skinparam noteBackgroundColor #FFF8DC
+
+actor "Staff user" as User
+participant "Browser page\n(searchPatient / addEncounter /\nupdatePatientDetails .html)" as Page
+participant "config.js" as Config
+participant "FastAPI app\n(main.py)" as API
+participant "CORSMiddleware" as CORS
+participant "service.py" as Service
+participant "repository.py" as Repo
+participant "database.py" as DB
+participant ".env\n(DATABASE_URL)" as Env
+database "PostgreSQL\n(fde_DRIQ)" as PG
+
+== Server start-up ==
+API -> DB : import (via service -> repository)
+DB -> Env : load_dotenv(); os.getenv("DATABASE_URL")
+Env --> DB : postgresql://<user>:<password>@host/db
+note right of DB
+  The full connection string, password included,
+  is printed to the console:
+  print('connection string:', DATABASE_URL)
+end note
+
+== Any request (e.g. PATCH /interventions/{encounter_id}) ==
+User -> Page : open page, fill in form\n(no login screen exists)
+Page -> Config : read window.API_BASE
+Config --> Page : http://127.0.0.1:8001
+Page -> API : fetch(API_BASE + path)\nheaders: Content-Type only\n(no Authorization header, no cookie)
+API -> CORS : check Origin
+note right of CORS
+  allow_origins=["*"], allow_credentials=True,
+  allow_methods=["*"], allow_headers=["*"]
+  -> every website is allowed
+end note
+CORS --> API : allowed
+
+note over API
+  **No authentication step.**
+  No Depends(), no API key, no token or session check.
+  All 9 endpoints, including POST /encounters and
+  PATCH /interventions/{id}, run for any caller.
+end note
+
+API -> Service : patch_care_intervention(...)
+Service -> Repo : update_care_intervention(...)
+Repo -> DB : get_connection()
+DB -> PG : psycopg.connect(DATABASE_URL)
+note right of PG
+  **The only credential check in the app:**
+  Postgres verifies the user/password in DATABASE_URL.
+  Every request runs as that single database user,
+  never as the person using the page.
+end note
+
+alt credentials valid
+  PG --> DB : connection
+  DB --> Repo : conn
+  Repo -> PG : UPDATE care_interventions ...
+  note right of PG
+    Database permissions (sql/createUser.sql):
+    care_management, hospital_operations,
+    clinical_leadership, finance_transformation
+    may SELECT both tables; only care_management may
+    UPDATE intervention_status, assigned_to, notes,
+    updated_at. These apply only if DATABASE_URL
+    signs in as one of those users.
+  end note
+  PG --> Repo : rowcount
+  Repo --> Service : True / False
+  Service --> API : success, or ValueError
+  API --> Page : 200 {"success": true}\nor 400 error
+else credentials invalid / DB down
+  PG --> DB : connection error
+  DB --> Repo : None (error printed)
+  Repo --> Service : False
+  Service --> API : ValueError
+  API --> Page : 400 "Failed to update care intervention..."
+end
+
+Page --> User : show result
+@enduml

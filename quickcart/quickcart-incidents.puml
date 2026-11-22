@@ -1,0 +1,119 @@
+' QuickCart: incidents A/B/C
+' Three failure scenarios defended with state transitions, retry logic,
+' communication and business rules. Each @startuml block renders as its own image.
+
+@startuml incident-A-payment-succeeded-ui-timed-out
+title Incident A: Payment succeeded; UI timed out
+
+skinparam sequenceMessageAlign center
+skinparam noteBackgroundColor #F2FAF5
+skinparam noteBorderColor #8CC5A3
+
+actor Customer
+participant "QuickCart UI" as UI
+participant "Checkout service" as Checkout
+participant "Payment provider" as Pay
+
+Customer -> UI : Place order
+UI -> Checkout : POST /checkout\n(purchase_id = P-123)
+Checkout -> Pay : Charge (idempotency key = P-123)
+Pay --> Checkout : Charge succeeded
+Checkout -> Checkout : Purchase P-123: PENDING -> PAID
+UI -x Checkout : Response lost (UI timed out)
+UI --> Customer : Request timed out
+
+== Customer retries / refreshes ==
+Customer -> UI : Retry
+UI -> Checkout : GET /purchases/P-123/status\n(look up, do NOT resubmit checkout)
+
+alt Outcome not yet known
+  Checkout --> UI : PENDING
+  UI --> Customer : "We are checking your payment"
+  UI -> Checkout : Poll status of P-123 (same stable ID)
+else Authoritative outcome known
+  Checkout --> UI : PAID
+  UI --> Customer : Order confirmed (P-123)
+end
+
+note over UI, Pay
+  **Invariant:** do not create a second charge by blindly resubmitting checkout.
+  The stable purchase ID is preserved across retries; any repeated charge
+  call reuses the same idempotency key, so the provider returns the original result.
+end note
+@enduml
+
+@startuml incident-B-hold-expired-payment-later-succeeded
+title Incident B: Ten-minute hold expired; payment later succeeded
+
+skinparam sequenceMessageAlign center
+skinparam noteBackgroundColor #F2FAF5
+skinparam noteBorderColor #8CC5A3
+
+actor Customer
+participant "Checkout service" as Checkout
+participant "Inventory\n(authority)" as Inv
+participant "Payment provider" as Pay
+
+Customer -> Checkout : Start checkout (P-456)
+Checkout -> Inv : Place 10-minute hold on unit
+Inv --> Checkout : Hold H-1 (expires in 10 min)
+
+... 10 minutes pass ...
+Inv -> Inv : Hold H-1: HELD -> EXPIRED\n(unit released)
+
+Pay --> Checkout : Payment succeeded (late)
+Checkout -> Pay : Verify payment for P-456
+Pay --> Checkout : Confirmed PAID
+Checkout -> Inv : Recheck availability (inventory is the authority)
+
+alt Unit available
+  Checkout -> Inv : Fresh atomic allocation for P-456\n(according to policy)
+  Inv --> Checkout : Allocated
+  Checkout -> Checkout : P-456: PAID -> ALLOCATED
+  Checkout --> Customer : Order confirmed
+else No unit available
+  Checkout -> Checkout : P-456: PAID -> NEEDS_RECONCILIATION
+  Checkout --> Customer : Offer alternative or refund (as agreed)
+  opt Customer chooses refund
+    Checkout -> Pay : Refund P-456
+    Pay --> Checkout : Refunded
+  end
+end
+
+note over Checkout, Pay
+  **Invariant:** paid does not mean inventory is reserved.
+  An expired hold is never treated as still valid.
+end note
+@enduml
+
+@startuml incident-C-cancellation-after-shipment
+title Incident C: Customer requests cancellation; item is shipped
+
+skinparam sequenceMessageAlign center
+skinparam noteBackgroundColor #F2FAF5
+skinparam noteBorderColor #8CC5A3
+
+actor Customer
+participant "Order service" as Order
+participant "Shipment system\n(authority)" as Ship
+participant "Returns process" as Returns
+
+Customer -> Order : Request cancellation (P-789)
+Order -> Ship : Get committed shipment state for P-789
+Ship --> Order : Committed state
+
+alt Not yet shipped
+  Order -> Ship : Cancel shipment
+  Ship --> Order : Cancelled
+  Order --> Customer : Order cancelled
+else SHIPPED (terminal transition)
+  Order --> Customer : Already shipped; cancellation not possible.\nStarting a return instead
+  Order -> Returns : Open return for P-789
+  Returns --> Customer : Return instructions
+end
+
+note over Order, Returns
+  **Invariant:** a terminal shipment transition must be respected.
+  Never pretend a pre-shipment cancellation is possible once shipped.
+end note
+@enduml
