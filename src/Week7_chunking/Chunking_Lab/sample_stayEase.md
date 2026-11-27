@@ -1,0 +1,36 @@
+StayEase Customer Policy
+Booking and room confirmation
+
+A guest chooses a hotel, a room type and a set of dates, such as three nights from 10 December, and submits a booking request through the StayEase website. StayEase asks the hotel's property management system (PMS) to place a provisional hold on every night of the stay. A hold lasts eight minutes and is not a confirmed reservation. The system records the hold identifier for each night so it can later check whether those room-nights are still reserved.
+
+A multi-night stay is only bookable if every night is available. If any single night cannot be held, StayEase releases the nights it already holds and tells the guest the dates are unavailable. A guest should never receive a booking that covers only part of the requested stay.
+
+After the guest attempts payment, the reservation service asks the payment gateway for the transaction status. The booking becomes confirmed only when payment success has been verified and the PMS has committed every night of the stay. A reservation number is then issued, displayed to the guest and sent by email. The guest should not treat the countdown timer or a "processing" screen as confirmation.
+
+Front-desk and web bookings
+
+Rooms can be booked on the StayEase website or at the hotel front desk. Both channels draw on the same room-nights in the hotel PMS, which is the authoritative record of which room belongs to which guest on each night. A room shown as available on the website may be taken at the front desk before the guest's hold is placed. Availability shown during search is a guide, not a promise.
+
+Payment timeouts and retries
+
+If a payment request times out, the outcome is unknown. The reservation service must verify the original payment status using the payment identifier before starting any new charge. A timeout is not evidence that payment failed.
+
+A guest who sees a pending status should refresh the booking status or contact support with the payment identifier. Paying again can cause duplicate charges. If the eight-minute hold expires before payment is verified, StayEase tries to hold the same nights again. If every night is still free, the booking is confirmed. If any night has been taken, the payment is refunded and the guest is told the rooms are no longer available. StayEase never substitutes different dates or a different room type without the guest's agreement.
+
+Refunds and cancellations
+
+Guests may cancel a reservation up to 48 hours before the check-in date. For this teaching example, refunds for eligible cancellations are processed to the original payment method within five working days. A cancellation made less than 48 hours before check-in, or a stay where the guest does not arrive, is not automatically eligible for a refund.
+
+Cancelling part of a multi-night stay, such as the last night only, is treated as a change to the reservation. The remaining nights stay confirmed, and any refund for the removed nights follows the same 48-hour rule.
+
+Refund exceptions
+
+If the hotel cannot provide the booked room, for example because of overbooking or maintenance, the guest can request a full refund or an equivalent room at the same or another StayEase hotel. A duplicate successful payment should be investigated with both transaction identifiers; support must not promise a second refund until the payment gateway has confirmed the amounts.
+
+Privacy and customer support
+
+Support may ask for a reservation number or payment identifier, but should not request a card password, full card number or card security code. Operational logs should keep a request identifier, the hold identifiers and the status changes while minimising personal data such as guest names, addresses and passport details. A complaint should be traced using those identifiers, not by guessing which payment or room-night record belongs to the guest.
+
+System observability
+
+Logs describe what happened during a booking; metrics show patterns such as hold expiry rates, PMS response times and payment timeout rates; and distributed traces show which service consumed the request time. These three signals help engineers distinguish a slow PMS or payment gateway from an overloaded reservation database. Good monitoring does not replace the need to verify payment truth at the payment gateway and room-night truth in the hotel PMS.

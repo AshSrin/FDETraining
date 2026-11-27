@@ -1,0 +1,153 @@
+{
+  "method": "fixed",
+  "source": "sample_stayEase.md",
+  "chunks": [
+    {
+      "text": "StayEase Customer Policy\nBooking and room confirmation\n\nA guest chooses a hotel, a room type and a set of dates, such as three nights from 10 December, and submits a booking request through the StayEase website. StayEase asks the hotel's pr",
+      "metadata": {
+        "start": 0,
+        "end": 240
+      }
+    },
+    {
+      "text": ". StayEase asks the hotel's property management system (PMS) to place a provisional hold on every night of the stay. A hold lasts eight minutes and is not a confirmed reservation. The system records the hold identifier for each night so it ",
+      "metadata": {
+        "start": 210,
+        "end": 450
+      }
+    },
+    {
+      "text": "entifier for each night so it can later check whether those room-nights are still reserved.\n\nA multi-night stay is only bookable if every night is available. If any single night cannot be held, StayEase releases the nights it already holds ",
+      "metadata": {
+        "start": 420,
+        "end": 660
+      }
+    },
+    {
+      "text": "s the nights it already holds and tells the guest the dates are unavailable. A guest should never receive a booking that covers only part of the requested stay.\n\nAfter the guest attempts payment, the reservation service asks the payment gat",
+      "metadata": {
+        "start": 630,
+        "end": 870
+      }
+    },
+    {
+      "text": "n service asks the payment gateway for the transaction status. The booking becomes confirmed only when payment success has been verified and the PMS has committed every night of the stay. A reservation number is then issued, displayed to th",
+      "metadata": {
+        "start": 840,
+        "end": 1080
+      }
+    },
+    {
+      "text": "s then issued, displayed to the guest and sent by email. The guest should not treat the countdown timer or a \"processing\" screen as confirmation.\n\nFront-desk and web bookings\n\nRooms can be booked on the StayEase website or at the hotel fron",
+      "metadata": {
+        "start": 1050,
+        "end": 1290
+      }
+    },
+    {
+      "text": "e website or at the hotel front desk. Both channels draw on the same room-nights in the hotel PMS, which is the authoritative record of which room belongs to which guest on each night. A room shown as available on the website may be taken a",
+      "metadata": {
+        "start": 1260,
+        "end": 1500
+      }
+    },
+    {
+      "text": " on the website may be taken at the front desk before the guest's hold is placed. Availability shown during search is a guide, not a promise.\n\nPayment timeouts and retries\n\nIf a payment request times out, the outcome is unknown. The reserva",
+      "metadata": {
+        "start": 1470,
+        "end": 1710
+      }
+    },
+    {
+      "text": "utcome is unknown. The reservation service must verify the original payment status using the payment identifier before starting any new charge. A timeout is not evidence that payment failed.\n\nA guest who sees a pending status should refresh",
+      "metadata": {
+        "start": 1680,
+        "end": 1920
+      }
+    },
+    {
+      "text": " pending status should refresh the booking status or contact support with the payment identifier. Paying again can cause duplicate charges. If the eight-minute hold expires before payment is verified, StayEase tries to hold the same nights ",
+      "metadata": {
+        "start": 1890,
+        "end": 2130
+      }
+    },
+    {
+      "text": "tries to hold the same nights again. If every night is still free, the booking is confirmed. If any night has been taken, the payment is refunded and the guest is told the rooms are no longer available. StayEase never substitutes different ",
+      "metadata": {
+        "start": 2100,
+        "end": 2340
+      }
+    },
+    {
+      "text": "e never substitutes different dates or a different room type without the guest's agreement.\n\nRefunds and cancellations\n\nGuests may cancel a reservation up to 48 hours before the check-in date. For this teaching example, refunds for eligible",
+      "metadata": {
+        "start": 2310,
+        "end": 2550
+      }
+    },
+    {
+      "text": " example, refunds for eligible cancellations are processed to the original payment method within five working days. A cancellation made less than 48 hours before check-in, or a stay where the guest does not arrive, is not automatically elig",
+      "metadata": {
+        "start": 2520,
+        "end": 2760
+      }
+    },
+    {
+      "text": "ive, is not automatically eligible for a refund.\n\nCancelling part of a multi-night stay, such as the last night only, is treated as a change to the reservation. The remaining nights stay confirmed, and any refund for the removed nights foll",
+      "metadata": {
+        "start": 2730,
+        "end": 2970
+      }
+    },
+    {
+      "text": "nd for the removed nights follows the same 48-hour rule.\n\nRefund exceptions\n\nIf the hotel cannot provide the booked room, for example because of overbooking or maintenance, the guest can request a full refund or an equivalent room at the sa",
+      "metadata": {
+        "start": 2940,
+        "end": 3180
+      }
+    },
+    {
+      "text": "r an equivalent room at the same or another StayEase hotel. A duplicate successful payment should be investigated with both transaction identifiers; support must not promise a second refund until the payment gateway has confirmed the amount",
+      "metadata": {
+        "start": 3150,
+        "end": 3390
+      }
+    },
+    {
+      "text": "teway has confirmed the amounts.\n\nPrivacy and customer support\n\nSupport may ask for a reservation number or payment identifier, but should not request a card password, full card number or card security code. Operational logs should keep a r",
+      "metadata": {
+        "start": 3360,
+        "end": 3600
+      }
+    },
+    {
+      "text": "erational logs should keep a request identifier, the hold identifiers and the status changes while minimising personal data such as guest names, addresses and passport details. A complaint should be traced using those identifiers, not by gu",
+      "metadata": {
+        "start": 3570,
+        "end": 3810
+      }
+    },
+    {
+      "text": "g those identifiers, not by guessing which payment or room-night record belongs to the guest.\n\nSystem observability\n\nLogs describe what happened during a booking; metrics show patterns such as hold expiry rates, PMS response times and payme",
+      "metadata": {
+        "start": 3780,
+        "end": 4020
+      }
+    },
+    {
+      "text": ", PMS response times and payment timeout rates; and distributed traces show which service consumed the request time. These three signals help engineers distinguish a slow PMS or payment gateway from an overloaded reservation database. Good ",
+      "metadata": {
+        "start": 3990,
+        "end": 4230
+      }
+    },
+    {
+      "text": "ed reservation database. Good monitoring does not replace the need to verify payment truth at the payment gateway and room-night truth in the hotel PMS.",
+      "metadata": {
+        "start": 4200,
+        "end": 4352
+      }
+    }
+  ]
+}
