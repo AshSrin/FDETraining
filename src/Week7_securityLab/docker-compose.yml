@@ -1,0 +1,18 @@
+# OPTIONAL: run only if you do not already have PostgreSQL with pgvector.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: fde
+      POSTGRES_PASSWORD: ${PG_ADMIN_PASSWORD:-change_me_locally}
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - security_lab_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fde -d postgres"]
+      interval: 3s
+      retries: 20
+volumes:
+  security_lab_postgres_data:

@@ -1,0 +1,43 @@
+[
+  {
+    "user_id": "priya",
+    "display_name": "Priya",
+    "groups": [
+      "HR",
+      "ALL_EMPLOYEES"
+    ]
+  },
+  {
+    "user_id": "arjun",
+    "display_name": "Arjun",
+    "groups": [
+      "FINANCE",
+      "ALL_EMPLOYEES"
+    ]
+  },
+  {
+    "user_id": "meena",
+    "display_name": "Meena",
+    "groups": [
+      "PROCUREMENT",
+      "ALL_EMPLOYEES"
+    ]
+  },
+  {
+    "user_id": "rahul",
+    "display_name": "Rahul",
+    "groups": [
+      "OPERATIONS",
+      "ALL_EMPLOYEES"
+    ]
+  },
+  {
+    "user_id": "divya",
+    "display_name": "Divya",
+    "groups": [
+      "FINANCE",
+      "PROCUREMENT",
+      "ALL_EMPLOYEES"
+    ]
+  }
+]
