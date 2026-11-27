@@ -1,0 +1,52 @@
+Exercise E security tests — 2026-11-27 11:05:27
+Tenant=TECHORG_ENGINEERING  restricted document=SEC-rbac-good-practices  question='What are recommended Kubernetes RBAC practices?'
+Retrieval role: k8s_rag_reader (RLS).  Admin used only for revoke/restore and fingerprints.
+
+PASS  E1  Meena (SECURITY_ENGINEERING) retrieves restricted SEC-rbac-good-practices
+      -> top results: SEC-rbac-good-practices#0 d=0.1681, SEC-secrets-good-practices#2 d=0.2009, SEC-rbac-good-practices#7 d=0.2104; 29 chunks of SEC-rbac-good-practices visible
+PASS  E2  Arjun cannot retrieve SEC-rbac-good-practices (not in SECURITY_ENGINEERING)
+      -> SEC-rbac-good-practices in top-20: 0; direct chunk count: 0; document row visible: False; best they get instead: PLAT-storage-classes#35 d=0.2764
+PASS  E2  Priya cannot retrieve SEC-rbac-good-practices (not in SECURITY_ENGINEERING)
+      -> SEC-rbac-good-practices in top-20: 0; direct chunk count: 0; document row visible: False; best they get instead: SHARED-kubernetes-api#2 d=0.2788
+
+Fingerprint before revoke: chunks=1137 max_id=2274 md5=2926ec278b45e20f47871f91a6f711bd
+ADMIN REVOKE: meena - SECURITY_ENGINEERING  (committed 11:05:27.731)
+Fingerprint after revoke:  chunks=1137 max_id=2274 md5=2926ec278b45e20f47871f91a6f711bd
+PASS  E3  Revoking SECURITY_ENGINEERING removes Meena's access on the very next query
+      -> SEC-rbac-good-practices chunks visible: 29 -> 0 (next query, 15 ms); SEC-* documents visible: 0; top results now: SHARED-kubernetes-api#2 d=0.2788, SHARED-kubernetes-api#23 d=0.2799, SHARED-components#3 d=0.2872
+PASS  E3  Revocation needed no re-embedding or re-ingesting
+      -> chunk count, max chunk_id and embedding hash identical before/after revoke
+PASS  E3  Revocation is scoped: Meena keeps ALL_EMPLOYEES shared documents
+      -> SHARED-* documents still visible: 5
+
+ADMIN RESTORE: meena + SECURITY_ENGINEERING  (committed 11:05:27.805)
+PASS  E5  Restoring SECURITY_ENGINEERING returns Meena's authorized access
+      -> SEC-rbac-good-practices chunks visible: 29; top results: SEC-rbac-good-practices#0 d=0.1681, SEC-secrets-good-practices#2 d=0.2009, SEC-rbac-good-practices#7 d=0.2104 (identical to E1: True)
+PASS  E4  Unknown identity 'intruder' cannot read protected chunks
+      -> chunks visible: 0; SEC-rbac-good-practices chunks: 0; documents visible: 0
+PASS  E4  Look-alike identity 'Meena ' (capital + trailing space) is unknown to the database
+      -> chunks visible: 0
+PASS  E4  Unknown identity 'admin' cannot read protected chunks
+      -> chunks visible: 0; SEC-rbac-good-practices chunks: 0; documents visible: 0
+PASS  E4  search.py path: unknown identity gets zero results
+      -> results returned: 0
+
+PASS  X1  No identity set at all -> fail closed
+      -> chunks visible: 0
+PASS  X2  Valid user with the wrong tenant (OTHER_ORG) sees nothing
+      -> SEC-rbac-good-practices chunks visible: 0
+PASS  X3  Divya (APP + SECURITY) reads both departments + shared, but not Platform
+      -> APP=10 SEC=5 SHARED=5 PLAT=0
+PASS  X4  Reader cannot read the ACL table
+      -> InsufficientPrivilege: permission denied for table document_acl
+PASS  X4  Reader cannot read identity tables
+      -> InsufficientPrivilege: permission denied for table user_groups
+PASS  X5  Reader cannot grant itself a group
+      -> InsufficientPrivilege: permission denied for table user_groups
+PASS  X5  Reader cannot modify stored chunks
+      -> InsufficientPrivilege: permission denied for table chunks
+PASS  X6  Reader cannot switch RLS off (SET row_security = off)
+      -> InsufficientPrivilege: query would be affected by row-level security policy for table "chunks"
+
+19/19 checks passed.
+Identities are simulated with --user for this local demo; production identities must come from a trusted, authenticated backend.

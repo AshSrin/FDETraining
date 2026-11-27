@@ -1,0 +1,6 @@
+[
+  {"user_id": "priya", "display_name": "Priya", "groups": ["APPLICATION_ENGINEERING", "ALL_EMPLOYEES"]},
+  {"user_id": "arjun", "display_name": "Arjun", "groups": ["PLATFORM_ENGINEERING", "ALL_EMPLOYEES"]},
+  {"user_id": "meena", "display_name": "Meena", "groups": ["SECURITY_ENGINEERING", "ALL_EMPLOYEES"]},
+  {"user_id": "divya", "display_name": "Divya", "groups": ["APPLICATION_ENGINEERING", "SECURITY_ENGINEERING", "ALL_EMPLOYEES"]}
+]

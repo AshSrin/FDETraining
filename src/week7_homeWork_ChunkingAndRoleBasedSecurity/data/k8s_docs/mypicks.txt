@@ -1,0 +1,34 @@
+# Application Engineering (10)
+concepts/workloads/pods/pod-lifecycle.md
+concepts/workloads/pods/init-containers.md
+concepts/workloads/pods/sidecar-containers.md
+concepts/workloads/pods/probes.md
+concepts/workloads/controllers/deployment.md
+concepts/workloads/controllers/replicaset.md
+concepts/workloads/controllers/statefulset.md
+concepts/workloads/controllers/daemonset.md
+concepts/workloads/controllers/job.md
+concepts/workloads/controllers/cron-jobs.md
+# Platform Engineering (10)
+concepts/storage/volumes.md
+concepts/storage/persistent-volumes.md
+concepts/storage/storage-classes.md
+concepts/storage/dynamic-provisioning.md
+concepts/storage/ephemeral-volumes.md
+concepts/storage/projected-volumes.md
+concepts/storage/volume-snapshots.md
+concepts/storage/ephemeral-storage.md
+concepts/storage/storage-capacity.md
+concepts/storage/volume-attributes-classes.md
+# Security Engineering (5)
+concepts/security/service-accounts.md
+concepts/security/pod-security-standards.md
+concepts/security/rbac-good-practices.md
+concepts/security/secrets-good-practices.md
+concepts/security/security-checklist.md
+# Shared knowledge (5)
+concepts/overview/components.md
+concepts/overview/kubernetes-api.md
+concepts/overview/kubectl.md
+concepts/overview/working-with-objects/namespaces.md
+concepts/overview/working-with-objects/labels.md

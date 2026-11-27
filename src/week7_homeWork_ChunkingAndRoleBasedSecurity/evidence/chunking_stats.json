@@ -1,0 +1,326 @@
+{
+  "fixed_size": {
+    "settings": "800 chars, 100 overlap",
+    "overlap": 100,
+    "total_chunks": 829,
+    "avg_chars": 785,
+    "median_chars": 800,
+    "min_chars": 123,
+    "max_chars": 800,
+    "pct_under_200": 0.7,
+    "pct_with_heading": 54.4,
+    "pct_start_at_heading": 4.0,
+    "pct_mid_sentence_start": 78.2,
+    "pct_clean_end": 19.3,
+    "pct_broken_code_fence": 13.8,
+    "chunk_seconds": 0.0,
+    "good_boundary": "… ReplicaSet.⏎⏎6. To see the labels automatically generated for each Pod, run `kubectl get pods --show-labels`.  ‖  6. To see the labels automatically generated for each Pod, run `kubectl get pods --show-labels`.⏎   The output…",
+    "poor_boundary": "…eates Pods in the background. Check the status of the rollout to see if it succeeds or not.⏎* [Declare the new  ‖  in the background. Check the status of the rollout to see if it succeeds or not.⏎* [Declare the new state of t…",
+    "smallest_chunk": "Volume from Snapshot](/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support).",
+    "retrieval": [
+      {
+        "question": "How does a Kubernetes Deployment manage application replicas?",
+        "expected": "APP-deployment",
+        "top5_docs": [
+          "APP-deployment",
+          "APP-replicaset",
+          "APP-deployment",
+          "APP-replicaset",
+          "APP-replicaset"
+        ],
+        "top1_distance": 0.1599,
+        "expected_rank": 1,
+        "expected_in_top5": 2,
+        "top1_preview": "# Deployments  A _Deployment_ provides declarative updates for Pods and ReplicaSets.  You describe a _desired state_ in a Deployment, and the Deployment control"
+      },
+      {
+        "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+        "expected": "PLAT-persistent-volumes",
+        "top5_docs": [
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes",
+          "PLAT-volume-snapshots",
+          "PLAT-persistent-volumes",
+          "PLAT-volumes"
+        ],
+        "top1_distance": 0.1855,
+        "expected_rank": 1,
+        "expected_in_top5": 3,
+        "top1_preview": "istentVolume`](/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/) * [`PersistentVolumeClaim`](/docs/reference/kubernetes-api/con"
+      },
+      {
+        "question": "What are recommended Kubernetes RBAC practices?",
+        "expected": "SEC-rbac-good-practices",
+        "top5_docs": [
+          "SEC-rbac-good-practices",
+          "SHARED-kubernetes-api",
+          "SEC-rbac-good-practices",
+          "SEC-service-accounts",
+          "SEC-rbac-good-practices"
+        ],
+        "top1_distance": 0.1756,
+        "expected_rank": 1,
+        "expected_in_top5": 3,
+        "top1_preview": "# Role Based Access Control Good Practices  Kubernetes RBAC is a key security control to ensure that cluster users and workloads have only the access to resourc"
+      },
+      {
+        "question": "What are the main Kubernetes components?",
+        "expected": "SHARED-components",
+        "top5_docs": [
+          "SHARED-components",
+          "SHARED-kubectl",
+          "PLAT-storage-classes",
+          "SHARED-kubernetes-api",
+          "SHARED-components"
+        ],
+        "top1_distance": 0.1409,
+        "expected_rank": 1,
+        "expected_in_top5": 2,
+        "top1_preview": "# Kubernetes Components  This page provides a high-level overview of the essential components that make up a Kubernetes cluster.  [Figure: The components of a K"
+      }
+    ]
+  },
+  "recursive": {
+    "settings": "800 chars, 100 overlap; ¶ → line → sentence → word",
+    "overlap": "≤100",
+    "total_chunks": 942,
+    "avg_chars": 625,
+    "median_chars": 669,
+    "min_chars": 87,
+    "max_chars": 827,
+    "pct_under_200": 2.3,
+    "pct_with_heading": 55.8,
+    "pct_start_at_heading": 28.5,
+    "pct_mid_sentence_start": 2.7,
+    "pct_clean_end": 76.9,
+    "pct_broken_code_fence": 2.9,
+    "chunk_seconds": 0.0,
+    "good_boundary": "…icator that a rollout has stuck.⏎* [Clean up older ReplicaSets](#clean-up-policy) that you don't need anymore.  ‖  ## Creating a Deployment⏎⏎The following is an example of a Deployment. It creates a ReplicaSet to bring up thr…",
+    "poor_boundary": "…ge:        nginx:1.16.1⏎        Port:         80/TCP⏎        Environment:  <none>⏎        Mounts:       <none>  ‖  Port:         80/TCP⏎        Environment:  <none>⏎        Mounts:       <none>⏎      Volumes:        <none>⏎  …",
+    "smallest_chunk": "* Get the description of the Deployment:⏎  ```shell⏎  kubectl describe deployment⏎  ```",
+    "retrieval": [
+      {
+        "question": "How does a Kubernetes Deployment manage application replicas?",
+        "expected": "APP-deployment",
+        "top5_docs": [
+          "APP-deployment",
+          "APP-replicaset",
+          "APP-replicaset",
+          "APP-deployment",
+          "APP-replicaset"
+        ],
+        "top1_distance": 0.1626,
+        "expected_rank": 1,
+        "expected_in_top5": 2,
+        "top1_preview": "# Deployments  A _Deployment_ provides declarative updates for Pods and ReplicaSets.  You describe a _desired state_ in a Deployment, and the Deployment control"
+      },
+      {
+        "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+        "expected": "PLAT-persistent-volumes",
+        "top5_docs": [
+          "PLAT-persistent-volumes",
+          "PLAT-volume-snapshots",
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes"
+        ],
+        "top1_distance": 0.1755,
+        "expected_rank": 1,
+        "expected_in_top5": 4,
+        "top1_preview": "A _PersistentVolumeClaim_ (PVC) is a request for storage by a user. It is similar to a Pod. Pods consume node resources and PVCs consume PV resources. Pods can "
+      },
+      {
+        "question": "What are recommended Kubernetes RBAC practices?",
+        "expected": "SEC-rbac-good-practices",
+        "top5_docs": [
+          "SEC-rbac-good-practices",
+          "SEC-rbac-good-practices",
+          "SEC-rbac-good-practices",
+          "SEC-secrets-good-practices",
+          "SEC-rbac-good-practices"
+        ],
+        "top1_distance": 0.176,
+        "expected_rank": 1,
+        "expected_in_top5": 4,
+        "top1_preview": "# Role Based Access Control Good Practices  Kubernetes RBAC is a key security control to ensure that cluster users and workloads have only the access to resourc"
+      },
+      {
+        "question": "What are the main Kubernetes components?",
+        "expected": "SHARED-components",
+        "top5_docs": [
+          "SHARED-components",
+          "APP-daemonset",
+          "SHARED-kubernetes-api",
+          "SHARED-kubectl",
+          "SHARED-kubernetes-api"
+        ],
+        "top1_distance": 0.144,
+        "expected_rank": 1,
+        "expected_in_top5": 1,
+        "top1_preview": "# Kubernetes Components  This page provides a high-level overview of the essential components that make up a Kubernetes cluster.  [Figure: The components of a K"
+      }
+    ]
+  },
+  "markdown_aware": {
+    "settings": "split on #–######; ≤800 chars, 100 overlap inside long sections; sections <200 merged forward",
+    "overlap": "≤100 (only inside long sections)",
+    "total_chunks": 1137,
+    "avg_chars": 560,
+    "median_chars": 608,
+    "min_chars": 76,
+    "max_chars": 800,
+    "pct_under_200": 3.6,
+    "pct_with_heading": 100.0,
+    "pct_start_at_heading": 100.0,
+    "pct_mid_sentence_start": 0.0,
+    "pct_clean_end": 92.4,
+    "pct_broken_code_fence": 2.5,
+    "chunk_seconds": 0.0,
+    "good_boundary": "…Deployment. Consider opening an issue in the main Kubernetes repository if your use case is not covered below.  ‖  Deployments > Use Case⏎⏎The following are typical use cases for Deployments:…",
+    "poor_boundary": "…bels:  app=nginx⏎     Containers:⏎      nginx:⏎        Image:        nginx:1.16.1⏎        Port:         80/TCP  ‖  Deployments > Updating a Deployment⏎⏎Containers:⏎      nginx:⏎        Image:        nginx:1.16.1⏎        Port:…",
+    "smallest_chunk": "Deployments > Use Case⏎⏎The following are typical use cases for Deployments:",
+    "retrieval": [
+      {
+        "question": "How does a Kubernetes Deployment manage application replicas?",
+        "expected": "APP-deployment",
+        "top5_docs": [
+          "APP-deployment",
+          "APP-deployment",
+          "APP-replicaset",
+          "APP-replicaset",
+          "APP-replicaset"
+        ],
+        "top1_distance": 0.1718,
+        "expected_rank": 1,
+        "expected_in_top5": 2,
+        "top1_preview": "Deployments  A _Deployment_ provides declarative updates for Pods and ReplicaSets.  You describe a _desired state_ in a Deployment, and the Deployment controlle"
+      },
+      {
+        "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+        "expected": "PLAT-persistent-volumes",
+        "top5_docs": [
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes",
+          "APP-statefulset",
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes"
+        ],
+        "top1_distance": 0.1661,
+        "expected_rank": 1,
+        "expected_in_top5": 4,
+        "top1_preview": "Persistent Volumes > PersistentVolumeClaims  Each PVC contains a spec and status, which is the specification and status of the claim. The name of a PersistentVo"
+      },
+      {
+        "question": "What are recommended Kubernetes RBAC practices?",
+        "expected": "SEC-rbac-good-practices",
+        "top5_docs": [
+          "SEC-rbac-good-practices",
+          "SEC-secrets-good-practices",
+          "SEC-rbac-good-practices",
+          "SEC-rbac-good-practices",
+          "SEC-rbac-good-practices"
+        ],
+        "top1_distance": 0.1681,
+        "expected_rank": 1,
+        "expected_in_top5": 4,
+        "top1_preview": "Role Based Access Control Good Practices  Kubernetes RBAC is a key security control to ensure that cluster users and workloads have only the access to resources"
+      },
+      {
+        "question": "What are the main Kubernetes components?",
+        "expected": "SHARED-components",
+        "top5_docs": [
+          "SHARED-components",
+          "SHARED-components",
+          "SHARED-components",
+          "SHARED-components",
+          "SHARED-kubernetes-api"
+        ],
+        "top1_distance": 0.1534,
+        "expected_rank": 1,
+        "expected_in_top5": 4,
+        "top1_preview": "Kubernetes Components > Core Components  # Kubernetes Components  This page provides a high-level overview of the essential components that make up a Kubernetes"
+      }
+    ]
+  },
+  "semantic": {
+    "settings": "sentence units, break at p90 cosine distance; 200–1500 chars",
+    "overlap": 0,
+    "total_chunks": 610,
+    "avg_chars": 929,
+    "median_chars": 966,
+    "min_chars": 82,
+    "max_chars": 1501,
+    "pct_under_200": 0.8,
+    "pct_with_heading": 55.4,
+    "pct_start_at_heading": 21.1,
+    "pct_mid_sentence_start": 4.4,
+    "pct_clean_end": 90.5,
+    "pct_broken_code_fence": 1.6,
+    "chunk_seconds": 115.3,
+    "good_boundary": "…section](https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status).  ‖  ### Pod Template⏎⏎The `.spec.template` and `.spec.selector` are the only required fields of the `.spec`.⏎⏎The …",
+    "poor_boundary": "…ector, Pod template labels, and in any existing Pods that the ReplicaSet might have.⏎⏎## Updating a Deployment  ‖  **Note:** A Deployment's rollout is triggered if and only if the Deployment's Pod template (that is, `.spec.te…",
+    "smallest_chunk": "As such, no single recommended profile is recommended for all sandboxed workloads.",
+    "retrieval": [
+      {
+        "question": "How does a Kubernetes Deployment manage application replicas?",
+        "expected": "APP-deployment",
+        "top5_docs": [
+          "APP-deployment",
+          "APP-replicaset",
+          "APP-replicaset",
+          "APP-replicaset",
+          "APP-replicaset"
+        ],
+        "top1_distance": 0.1525,
+        "expected_rank": 1,
+        "expected_in_top5": 1,
+        "top1_preview": "# Deployments  A _Deployment_ provides declarative updates for Pods and ReplicaSets.  You describe a _desired state_ in a Deployment, and the Deployment control"
+      },
+      {
+        "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+        "expected": "PLAT-persistent-volumes",
+        "top5_docs": [
+          "PLAT-persistent-volumes",
+          "APP-statefulset",
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes",
+          "PLAT-persistent-volumes"
+        ],
+        "top1_distance": 0.1616,
+        "expected_rank": 1,
+        "expected_in_top5": 4,
+        "top1_preview": "Managing storage is a distinct problem from managing compute instances. The PersistentVolume subsystem provides an API for users and administrators that abstrac"
+      },
+      {
+        "question": "What are recommended Kubernetes RBAC practices?",
+        "expected": "SEC-rbac-good-practices",
+        "top5_docs": [
+          "SEC-rbac-good-practices",
+          "SEC-rbac-good-practices",
+          "SEC-security-checklist",
+          "SEC-rbac-good-practices",
+          "SEC-security-checklist"
+        ],
+        "top1_distance": 0.1757,
+        "expected_rank": 1,
+        "expected_in_top5": 3,
+        "top1_preview": "# Role Based Access Control Good Practices  Kubernetes RBAC is a key security control to ensure that cluster users and workloads have only the access to resourc"
+      },
+      {
+        "question": "What are the main Kubernetes components?",
+        "expected": "SHARED-components",
+        "top5_docs": [
+          "SHARED-components",
+          "SHARED-components",
+          "SHARED-components",
+          "SHARED-kubectl",
+          "SHARED-kubectl"
+        ],
+        "top1_distance": 0.1581,
+        "expected_rank": 1,
+        "expected_in_top5": 3,
+        "top1_preview": "# Kubernetes Components  This page provides a high-level overview of the essential components that make up a Kubernetes cluster.  [Figure: The components of a K"
+      }
+    ]
+  }
+}

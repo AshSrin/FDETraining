@@ -1,0 +1,19 @@
+# OPTIONAL: only if you do not already have PostgreSQL + pgvector running on port 5432.
+# Credentials here are local-demo placeholders; put the same values in your own .env.
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: ${PG_ADMIN_USER:-fde}
+      POSTGRES_PASSWORD: ${PG_ADMIN_PASSWORD:-change_me_locally}
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - k8s_rag_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_ADMIN_USER:-fde} -d postgres"]
+      interval: 3s
+      retries: 20
+volumes:
+  k8s_rag_postgres_data:

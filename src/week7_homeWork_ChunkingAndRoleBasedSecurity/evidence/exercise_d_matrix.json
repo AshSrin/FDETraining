@@ -1,0 +1,1356 @@
+{
+  "summary": {
+    "tenant": "TECHORG_ENGINEERING",
+    "k": 5,
+    "max_distance": 0.23,
+    "results_checked": 80,
+    "unauthorized_results": 0,
+    "violations": []
+  },
+  "questions": [
+    {
+      "question": "How does a Kubernetes Deployment manage application replicas?",
+      "area": "Application Engineering",
+      "ground_truth": [
+        {
+          "rank": 1,
+          "document_id": "APP-deployment",
+          "title": "Deployments",
+          "chunk_no": 0,
+          "heading": "Deployments",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+          "groups": "APPLICATION_ENGINEERING",
+          "cosine_distance": 0.1718,
+          "visible_to": {
+            "priya": true,
+            "arjun": false,
+            "meena": false,
+            "divya": true
+          }
+        },
+        {
+          "rank": 2,
+          "document_id": "APP-deployment",
+          "title": "Deployments",
+          "chunk_no": 91,
+          "heading": "Deployments > Writing a Deployment Spec > Replicas",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+          "groups": "APPLICATION_ENGINEERING",
+          "cosine_distance": 0.1742,
+          "visible_to": {
+            "priya": true,
+            "arjun": false,
+            "meena": false,
+            "divya": true
+          }
+        },
+        {
+          "rank": 3,
+          "document_id": "APP-replicaset",
+          "title": "ReplicaSet",
+          "chunk_no": 34,
+          "heading": "ReplicaSet > What's next",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+          "groups": "APPLICATION_ENGINEERING",
+          "cosine_distance": 0.1945,
+          "visible_to": {
+            "priya": true,
+            "arjun": false,
+            "meena": false,
+            "divya": true
+          }
+        },
+        {
+          "rank": 4,
+          "document_id": "APP-replicaset",
+          "title": "ReplicaSet",
+          "chunk_no": 30,
+          "heading": "ReplicaSet > Alternatives to ReplicaSet > Deployment (recommended)",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+          "groups": "APPLICATION_ENGINEERING",
+          "cosine_distance": 0.2071,
+          "visible_to": {
+            "priya": true,
+            "arjun": false,
+            "meena": false,
+            "divya": true
+          }
+        },
+        {
+          "rank": 5,
+          "document_id": "APP-replicaset",
+          "title": "ReplicaSet",
+          "chunk_no": 3,
+          "heading": "ReplicaSet > Example",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+          "groups": "APPLICATION_ENGINEERING",
+          "cosine_distance": 0.2144,
+          "visible_to": {
+            "priya": true,
+            "arjun": false,
+            "meena": false,
+            "divya": true
+          }
+        }
+      ],
+      "users": {
+        "priya": [
+          {
+            "rank": 1,
+            "document_id": "APP-deployment",
+            "title": "Deployments",
+            "chunk_no": 0,
+            "heading": "Deployments",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+            "classification": "restricted",
+            "cosine_distance": 0.1718,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-deployment",
+            "title": "Deployments",
+            "chunk_no": 91,
+            "heading": "Deployments > Writing a Deployment Spec > Replicas",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+            "classification": "restricted",
+            "cosine_distance": 0.1742,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-replicaset",
+            "title": "ReplicaSet",
+            "chunk_no": 34,
+            "heading": "ReplicaSet > What's next",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+            "classification": "restricted",
+            "cosine_distance": 0.1945,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-replicaset",
+            "title": "ReplicaSet",
+            "chunk_no": 30,
+            "heading": "ReplicaSet > Alternatives to ReplicaSet > Deployment (recommended)",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2071,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-replicaset",
+            "title": "ReplicaSet",
+            "chunk_no": 3,
+            "heading": "ReplicaSet > Example",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2144,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ],
+        "arjun": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 23,
+            "heading": "The Kubernetes API > API groups and versioning",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.251,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 26,
+            "heading": "The Kubernetes API > API groups and versioning > API changes",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2563,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 3,
+            "document_id": "PLAT-persistent-volumes",
+            "title": "Persistent Volumes",
+            "chunk_no": 6,
+            "heading": "Persistent Volumes > Lifecycle of a volume and claim > Provisioning > Static",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+            "classification": "restricted",
+            "cosine_distance": 0.2636,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 4,
+            "document_id": "PLAT-persistent-volumes",
+            "title": "Persistent Volumes",
+            "chunk_no": 37,
+            "heading": "Persistent Volumes > Lifecycle of a volume and claim > Expanding Persistent Volumes Claims > Resizing an in-use PersistentVolumeClaim",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+            "classification": "restricted",
+            "cosine_distance": 0.2693,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 27,
+            "heading": "The Kubernetes API > API groups and versioning > API changes",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2704,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ],
+        "meena": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 23,
+            "heading": "The Kubernetes API > API groups and versioning",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.251,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 26,
+            "heading": "The Kubernetes API > API groups and versioning > API changes",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2563,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 27,
+            "heading": "The Kubernetes API > API groups and versioning > API changes",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2704,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-kubectl",
+            "title": "The kubectl command-line tool",
+            "chunk_no": 3,
+            "heading": "The kubectl command-line tool > How kubectl works",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubectl/",
+            "classification": "shared",
+            "cosine_distance": 0.2743,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2744,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ],
+        "divya": [
+          {
+            "rank": 1,
+            "document_id": "APP-deployment",
+            "title": "Deployments",
+            "chunk_no": 0,
+            "heading": "Deployments",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+            "classification": "restricted",
+            "cosine_distance": 0.1718,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-deployment",
+            "title": "Deployments",
+            "chunk_no": 91,
+            "heading": "Deployments > Writing a Deployment Spec > Replicas",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+            "classification": "restricted",
+            "cosine_distance": 0.1742,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-replicaset",
+            "title": "ReplicaSet",
+            "chunk_no": 34,
+            "heading": "ReplicaSet > What's next",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+            "classification": "restricted",
+            "cosine_distance": 0.1945,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-replicaset",
+            "title": "ReplicaSet",
+            "chunk_no": 30,
+            "heading": "ReplicaSet > Alternatives to ReplicaSet > Deployment (recommended)",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2071,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-replicaset",
+            "title": "ReplicaSet",
+            "chunk_no": 3,
+            "heading": "ReplicaSet > Example",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2144,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ]
+      }
+    },
+    {
+      "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+      "area": "Platform Engineering",
+      "ground_truth": [
+        {
+          "rank": 1,
+          "document_id": "PLAT-persistent-volumes",
+          "title": "Persistent Volumes",
+          "chunk_no": 70,
+          "heading": "Persistent Volumes > PersistentVolumeClaims",
+          "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+          "groups": "PLATFORM_ENGINEERING",
+          "cosine_distance": 0.1661,
+          "visible_to": {
+            "priya": false,
+            "arjun": true,
+            "meena": false,
+            "divya": false
+          }
+        },
+        {
+          "rank": 2,
+          "document_id": "PLAT-persistent-volumes",
+          "title": "Persistent Volumes",
+          "chunk_no": 1,
+          "heading": "Persistent Volumes > Introduction",
+          "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+          "groups": "PLATFORM_ENGINEERING",
+          "cosine_distance": 0.1761,
+          "visible_to": {
+            "priya": false,
+            "arjun": true,
+            "meena": false,
+            "divya": false
+          }
+        },
+        {
+          "rank": 3,
+          "document_id": "APP-statefulset",
+          "title": "StatefulSets",
+          "chunk_no": 17,
+          "heading": "StatefulSets > Pod Identity > Stable Storage",
+          "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+          "groups": "APPLICATION_ENGINEERING",
+          "cosine_distance": 0.1762,
+          "visible_to": {
+            "priya": true,
+            "arjun": false,
+            "meena": false,
+            "divya": true
+          }
+        },
+        {
+          "rank": 4,
+          "document_id": "PLAT-persistent-volumes",
+          "title": "Persistent Volumes",
+          "chunk_no": 3,
+          "heading": "Persistent Volumes > Introduction",
+          "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+          "groups": "PLATFORM_ENGINEERING",
+          "cosine_distance": 0.1797,
+          "visible_to": {
+            "priya": false,
+            "arjun": true,
+            "meena": false,
+            "divya": false
+          }
+        },
+        {
+          "rank": 5,
+          "document_id": "PLAT-persistent-volumes",
+          "title": "Persistent Volumes",
+          "chunk_no": 29,
+          "heading": "Persistent Volumes > Lifecycle of a volume and claim > Reserving a PersistentVolume",
+          "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+          "groups": "PLATFORM_ENGINEERING",
+          "cosine_distance": 0.1816,
+          "visible_to": {
+            "priya": false,
+            "arjun": true,
+            "meena": false,
+            "divya": false
+          }
+        }
+      ],
+      "users": {
+        "priya": [
+          {
+            "rank": 1,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 17,
+            "heading": "StatefulSets > Pod Identity > Stable Storage",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.1762,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 7,
+            "heading": "StatefulSets > Components > Volume Claim Templates",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2194,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 42,
+            "heading": "StatefulSets > PersistentVolumeClaim retention",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2386,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 44,
+            "heading": "StatefulSets > PersistentVolumeClaim retention",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2419,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 45,
+            "heading": "StatefulSets > PersistentVolumeClaim retention",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2492,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ],
+        "arjun": [
+          {
+            "rank": 1,
+            "document_id": "PLAT-persistent-volumes",
+            "title": "Persistent Volumes",
+            "chunk_no": 70,
+            "heading": "Persistent Volumes > PersistentVolumeClaims",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+            "classification": "restricted",
+            "cosine_distance": 0.1661,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "PLAT-persistent-volumes",
+            "title": "Persistent Volumes",
+            "chunk_no": 1,
+            "heading": "Persistent Volumes > Introduction",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+            "classification": "restricted",
+            "cosine_distance": 0.1761,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "PLAT-persistent-volumes",
+            "title": "Persistent Volumes",
+            "chunk_no": 3,
+            "heading": "Persistent Volumes > Introduction",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+            "classification": "restricted",
+            "cosine_distance": 0.1797,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "PLAT-persistent-volumes",
+            "title": "Persistent Volumes",
+            "chunk_no": 29,
+            "heading": "Persistent Volumes > Lifecycle of a volume and claim > Reserving a PersistentVolume",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+            "classification": "restricted",
+            "cosine_distance": 0.1816,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "PLAT-volume-snapshots",
+            "title": "Volume Snapshots",
+            "chunk_no": 10,
+            "heading": "Volume Snapshots > Lifecycle of a volume snapshot and volume snapshot content > Persistent Volume Claim as Snapshot Source Protection",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/volume-snapshots/",
+            "classification": "restricted",
+            "cosine_distance": 0.1869,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ],
+        "meena": [
+          {
+            "rank": 1,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 16,
+            "heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Persistent volume creation",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2195,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 15,
+            "heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Persistent volume creation",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2727,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-security-checklist",
+            "title": "Security Checklist",
+            "chunk_no": 39,
+            "heading": "Security Checklist > Admission controllers",
+            "source_url": "https://kubernetes.io/docs/concepts/security/security-checklist/",
+            "classification": "restricted",
+            "cosine_distance": 0.3326,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 4,
+            "document_id": "SEC-pod-security-standards",
+            "title": "Pod Security Standards",
+            "chunk_no": 25,
+            "heading": "Pod Security Standards > Profile Details > Restricted",
+            "source_url": "https://kubernetes.io/docs/concepts/security/pod-security-standards/",
+            "classification": "restricted",
+            "cosine_distance": 0.3415,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "SEC-security-checklist",
+            "title": "Security Checklist",
+            "chunk_no": 24,
+            "heading": "Security Checklist > Secrets",
+            "source_url": "https://kubernetes.io/docs/concepts/security/security-checklist/",
+            "classification": "restricted",
+            "cosine_distance": 0.354,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ],
+        "divya": [
+          {
+            "rank": 1,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 17,
+            "heading": "StatefulSets > Pod Identity > Stable Storage",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.1762,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 7,
+            "heading": "StatefulSets > Components > Volume Claim Templates",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2194,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 16,
+            "heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Persistent volume creation",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2195,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 42,
+            "heading": "StatefulSets > PersistentVolumeClaim retention",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2386,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-statefulset",
+            "title": "StatefulSets",
+            "chunk_no": 44,
+            "heading": "StatefulSets > PersistentVolumeClaim retention",
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+            "classification": "restricted",
+            "cosine_distance": 0.2419,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ]
+      }
+    },
+    {
+      "question": "What are recommended Kubernetes RBAC practices?",
+      "area": "Security Engineering",
+      "ground_truth": [
+        {
+          "rank": 1,
+          "document_id": "SEC-rbac-good-practices",
+          "title": "Role Based Access Control Good Practices",
+          "chunk_no": 0,
+          "heading": "Role Based Access Control Good Practices",
+          "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+          "groups": "SECURITY_ENGINEERING",
+          "cosine_distance": 0.1681,
+          "visible_to": {
+            "priya": false,
+            "arjun": false,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 2,
+          "document_id": "SEC-secrets-good-practices",
+          "title": "Good practices for Kubernetes Secrets",
+          "chunk_no": 2,
+          "heading": "Good practices for Kubernetes Secrets > Cluster administrators > Configure least-privilege access to Secrets",
+          "source_url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/",
+          "groups": "SECURITY_ENGINEERING",
+          "cosine_distance": 0.2009,
+          "visible_to": {
+            "priya": false,
+            "arjun": false,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 3,
+          "document_id": "SEC-rbac-good-practices",
+          "title": "Role Based Access Control Good Practices",
+          "chunk_no": 7,
+          "heading": "Role Based Access Control Good Practices > General good practice > Hardening",
+          "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+          "groups": "SECURITY_ENGINEERING",
+          "cosine_distance": 0.2104,
+          "visible_to": {
+            "priya": false,
+            "arjun": false,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 4,
+          "document_id": "SEC-rbac-good-practices",
+          "title": "Role Based Access Control Good Practices",
+          "chunk_no": 18,
+          "heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Access to `proxy` subresource of Nodes",
+          "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+          "groups": "SECURITY_ENGINEERING",
+          "cosine_distance": 0.2138,
+          "visible_to": {
+            "priya": false,
+            "arjun": false,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 5,
+          "document_id": "SEC-rbac-good-practices",
+          "title": "Role Based Access Control Good Practices",
+          "chunk_no": 9,
+          "heading": "Role Based Access Control Good Practices > General good practice > Periodic review",
+          "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+          "groups": "SECURITY_ENGINEERING",
+          "cosine_distance": 0.2158,
+          "visible_to": {
+            "priya": false,
+            "arjun": false,
+            "meena": true,
+            "divya": true
+          }
+        }
+      ],
+      "users": {
+        "priya": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2788,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 23,
+            "heading": "The Kubernetes API > API groups and versioning",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2799,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 3,
+            "heading": "Kubernetes Components > Addons",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2872,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 1,
+            "heading": "Kubernetes Components > Core Components > Control Plane Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2878,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubectl",
+            "title": "The kubectl command-line tool",
+            "chunk_no": 10,
+            "heading": "The kubectl command-line tool > What's next",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubectl/",
+            "classification": "shared",
+            "cosine_distance": 0.2925,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ],
+        "arjun": [
+          {
+            "rank": 1,
+            "document_id": "PLAT-storage-classes",
+            "title": "Storage Classes",
+            "chunk_no": 35,
+            "heading": "Storage Classes > Parameters > Ceph RBD (deprecated)",
+            "source_url": "https://kubernetes.io/docs/concepts/storage/storage-classes/",
+            "classification": "restricted",
+            "cosine_distance": 0.2764,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2788,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 23,
+            "heading": "The Kubernetes API > API groups and versioning",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2799,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 3,
+            "heading": "Kubernetes Components > Addons",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2872,
+            "authorized": true,
+            "within_cutoff": false
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 1,
+            "heading": "Kubernetes Components > Core Components > Control Plane Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2878,
+            "authorized": true,
+            "within_cutoff": false
+          }
+        ],
+        "meena": [
+          {
+            "rank": 1,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 0,
+            "heading": "Role Based Access Control Good Practices",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.1681,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SEC-secrets-good-practices",
+            "title": "Good practices for Kubernetes Secrets",
+            "chunk_no": 2,
+            "heading": "Good practices for Kubernetes Secrets > Cluster administrators > Configure least-privilege access to Secrets",
+            "source_url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2009,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 7,
+            "heading": "Role Based Access Control Good Practices > General good practice > Hardening",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2104,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 18,
+            "heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Access to `proxy` subresource of Nodes",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2138,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 9,
+            "heading": "Role Based Access Control Good Practices > General good practice > Periodic review",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2158,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ],
+        "divya": [
+          {
+            "rank": 1,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 0,
+            "heading": "Role Based Access Control Good Practices",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.1681,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SEC-secrets-good-practices",
+            "title": "Good practices for Kubernetes Secrets",
+            "chunk_no": 2,
+            "heading": "Good practices for Kubernetes Secrets > Cluster administrators > Configure least-privilege access to Secrets",
+            "source_url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2009,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 7,
+            "heading": "Role Based Access Control Good Practices > General good practice > Hardening",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2104,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 18,
+            "heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Access to `proxy` subresource of Nodes",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2138,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "SEC-rbac-good-practices",
+            "title": "Role Based Access Control Good Practices",
+            "chunk_no": 9,
+            "heading": "Role Based Access Control Good Practices > General good practice > Periodic review",
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+            "classification": "restricted",
+            "cosine_distance": 0.2158,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ]
+      }
+    },
+    {
+      "question": "What are the main Kubernetes components?",
+      "area": "Shared knowledge",
+      "ground_truth": [
+        {
+          "rank": 1,
+          "document_id": "SHARED-components",
+          "title": "Kubernetes Components",
+          "chunk_no": 0,
+          "heading": "Kubernetes Components > Core Components",
+          "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+          "groups": "ALL_EMPLOYEES",
+          "cosine_distance": 0.1534,
+          "visible_to": {
+            "priya": true,
+            "arjun": true,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 2,
+          "document_id": "SHARED-components",
+          "title": "Kubernetes Components",
+          "chunk_no": 4,
+          "heading": "Kubernetes Components > Flexibility in Architecture",
+          "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+          "groups": "ALL_EMPLOYEES",
+          "cosine_distance": 0.1872,
+          "visible_to": {
+            "priya": true,
+            "arjun": true,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 3,
+          "document_id": "SHARED-components",
+          "title": "Kubernetes Components",
+          "chunk_no": 1,
+          "heading": "Kubernetes Components > Core Components > Control Plane Components",
+          "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+          "groups": "ALL_EMPLOYEES",
+          "cosine_distance": 0.1966,
+          "visible_to": {
+            "priya": true,
+            "arjun": true,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 4,
+          "document_id": "SHARED-components",
+          "title": "Kubernetes Components",
+          "chunk_no": 3,
+          "heading": "Kubernetes Components > Addons",
+          "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+          "groups": "ALL_EMPLOYEES",
+          "cosine_distance": 0.2016,
+          "visible_to": {
+            "priya": true,
+            "arjun": true,
+            "meena": true,
+            "divya": true
+          }
+        },
+        {
+          "rank": 5,
+          "document_id": "SHARED-kubernetes-api",
+          "title": "The Kubernetes API",
+          "chunk_no": 2,
+          "heading": "The Kubernetes API",
+          "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+          "groups": "ALL_EMPLOYEES",
+          "cosine_distance": 0.2146,
+          "visible_to": {
+            "priya": true,
+            "arjun": true,
+            "meena": true,
+            "divya": true
+          }
+        }
+      ],
+      "users": {
+        "priya": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 0,
+            "heading": "Kubernetes Components > Core Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 4,
+            "heading": "Kubernetes Components > Flexibility in Architecture",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1872,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 1,
+            "heading": "Kubernetes Components > Core Components > Control Plane Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1966,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 3,
+            "heading": "Kubernetes Components > Addons",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2016,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2146,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ],
+        "arjun": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 0,
+            "heading": "Kubernetes Components > Core Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 4,
+            "heading": "Kubernetes Components > Flexibility in Architecture",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1872,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 1,
+            "heading": "Kubernetes Components > Core Components > Control Plane Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1966,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 3,
+            "heading": "Kubernetes Components > Addons",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2016,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2146,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ],
+        "meena": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 0,
+            "heading": "Kubernetes Components > Core Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 4,
+            "heading": "Kubernetes Components > Flexibility in Architecture",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1872,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 1,
+            "heading": "Kubernetes Components > Core Components > Control Plane Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1966,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 3,
+            "heading": "Kubernetes Components > Addons",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2016,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2146,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ],
+        "divya": [
+          {
+            "rank": 1,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 0,
+            "heading": "Kubernetes Components > Core Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 2,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 4,
+            "heading": "Kubernetes Components > Flexibility in Architecture",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1872,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 3,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 1,
+            "heading": "Kubernetes Components > Core Components > Control Plane Components",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.1966,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 4,
+            "document_id": "SHARED-components",
+            "title": "Kubernetes Components",
+            "chunk_no": 3,
+            "heading": "Kubernetes Components > Addons",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+            "classification": "shared",
+            "cosine_distance": 0.2016,
+            "authorized": true,
+            "within_cutoff": true
+          },
+          {
+            "rank": 5,
+            "document_id": "SHARED-kubernetes-api",
+            "title": "The Kubernetes API",
+            "chunk_no": 2,
+            "heading": "The Kubernetes API",
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+            "classification": "shared",
+            "cosine_distance": 0.2146,
+            "authorized": true,
+            "within_cutoff": true
+          }
+        ]
+      }
+    }
+  ]
+}
